@@ -1,6 +1,7 @@
 <script>
- console.log("Running");
+ import "../node_modules/bulma/css/bulma.min.css"
  
+ console.log("Running");
 </script>
 
 
