@@ -33,6 +33,16 @@ const dogs = [
         url: "https://www.telegraph.co.uk/content/dam/Pets/spark/pets-at-home-2017/happy-dog-runs.jpg",
         id: 7,
         score: 0
+    },
+    {
+        url: "https://s1.reutersmedia.net/resources/r/?m=02&d=20120209&t=2&i=568805608&w=1200&r=BTRE8181K3900",
+        id: 8,
+        score: 0
+    },
+    {
+        url: "https://1.bp.blogspot.com/-uNSrS1kFtLk/TnA7ZCRO9AI/AAAAAAAAAJA/BSztWOrHSIA/s1600/Bulldog%2B-%2Bcompact%2Bdog%2B01.jpg",
+        id: 9,
+        score: 0
     }
 ]
 
