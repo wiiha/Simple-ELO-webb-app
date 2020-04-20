@@ -3,6 +3,7 @@
   export let url;
   export let id;
   export let score;
+  export let showScore = false;
 
   const dispatch = createEventDispatcher();
   let src = url;
@@ -18,4 +19,7 @@
   <figure class="image">
     <img src={url} alt="picture of a dog" />
   </figure>
+  {#if showScore}
+  <p>Score: {score}</p>
+  {/if}
 </div>
