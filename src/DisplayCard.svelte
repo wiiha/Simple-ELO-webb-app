@@ -1,12 +1,13 @@
 <script>
-  export let dog;
-  let src = dog.url;
-  let id = dog.id;
+  export let url;
+  export let id;
+  export let score;
+  let src = url;
 </script>
 
 <div class="box has-text-centered">
-<p>ID: {id}</p>
+  <p>ID: {id}</p>
   <figure class="image">
-    <img {src} alt="picture of dog">
+    <img src={url} alt="picture of a dog" />
   </figure>
 </div>
