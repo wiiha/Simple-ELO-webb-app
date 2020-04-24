@@ -9,10 +9,15 @@
   let src = url;
 
   function cardChosen() {
-    dispatch('cardPressed', id)
+    dispatch("cardPressed", id);
   }
-
 </script>
+
+<style>
+  .box {
+    max-width: 900px;
+  }
+</style>
 
 <div on:click={cardChosen} class="box has-text-centered">
   <p>ID: {id}</p>
@@ -20,6 +25,6 @@
     <img src={url} alt="picture of a dog" />
   </figure>
   {#if showScore}
-  <p>Score: {score}</p>
+    <p>Score: {score}</p>
   {/if}
 </div>
