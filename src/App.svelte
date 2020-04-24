@@ -2,6 +2,7 @@
   import "../node_modules/bulma/css/bulma.min.css";
   import { dogs } from "./db.js";
   import RatingComponent from "./RatingComponent.svelte";
+  import DisplayStats from "./DisplayStats.svelte";
 
   let competitors = dogs;
   function updateState(event) {
@@ -16,6 +17,7 @@
 <!-- Main/ rate -->
 <RatingComponent on:stateUpdate={updateState} {competitors} />
 <!-- Main/ stats -->
+<DisplayStats {competitors}/>
 
 <!-- Potential footer -->
 <button class="button is-info" on:click={() => console.log(competitors)}>

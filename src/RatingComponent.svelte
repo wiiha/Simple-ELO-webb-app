@@ -20,34 +20,39 @@
       setRandomDogs();
     }
   }
-  setRandomDogs();
 
-  function cardChosen(event) {
+  function setNewScores(event, competitors, playerOne, playerTwo) {
     const idChosenDog = event.detail;
-    const winner = idChosenDog === dogI.id ? 1 : 0;
+    const winner = idChosenDog === playerOne.id ? 1 : 0;
 
     // calcs for points
-    const newScore = newRatings(dogI.score, dogII.score, winner);
+    const newScore = newRatings(playerOne.score, playerTwo.score, winner);
 
     // Update competitors
-    dogI.score = newScore.player1;
-    dogII.score = newScore.player2;
+    playerOne.score = newScore.player1;
+    playerTwo.score = newScore.player2;
 
     competitors.forEach(dog => {
-      if (dog.id === dogI.id) {
-        dog.score = dogI.score;
-      } else if (dog.id === dogII.id) {
-        dog.score = dogII.score;
+      if (dog.id === playerOne.id) {
+        dog.score = playerOne.score;
+      } else if (dog.id === playerTwo.id) {
+        dog.score = playerTwo.score;
       }
     });
 
-    competitors = [...competitors];
+    // competitors = [...competitors];
 
     // write new data to app state
     dispatch("stateUpdate", competitors);
     // change pair of dogs
     setRandomDogs();
   }
+
+  function cardChosen(event) {
+    setNewScores(event, competitors, dogI, dogII);
+  }
+
+  setRandomDogs();
 </script>
 
 <section class="section">
