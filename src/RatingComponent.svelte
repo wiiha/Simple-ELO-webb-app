@@ -55,15 +55,12 @@
   setRandomDogs();
 </script>
 
-<section class="section">
-  <div class="container">
-    <div class="columns">
-      <div class="column">
-        <DisplayCard on:cardPressed={cardChosen} {...dogI} />
-      </div>
-      <div class="column">
-        <DisplayCard on:cardPressed={cardChosen} {...dogII} />
-      </div>
+
+  <div class="columns">
+    <div class="column">
+      <DisplayCard on:cardPressed={cardChosen} {...dogI} />
+    </div>
+    <div class="column">
+      <DisplayCard on:cardPressed={cardChosen} {...dogII} />
     </div>
   </div>
-</section>

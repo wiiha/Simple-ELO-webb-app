@@ -15,16 +15,26 @@
   }
 </script>
 
+<style>
+.section{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+</style>
+
 <!-- Navbar -->
 <div class="tabs is-centered">
   <ul>
-    <li class="{currentRoute === 'rate' ? 'is-active':''}"
+    <li
+      class={currentRoute === 'rate' ? 'is-active' : ''}
       on:click={() => {
         navigate('rate');
       }}>
       <a>Rate</a>
     </li>
-    <li class="{currentRoute === 'scoreboard' ? 'is-active':''}"
+    <li
+      class={currentRoute === 'scoreboard' ? 'is-active' : ''}
       on:click={() => {
         navigate('scoreboard');
       }}>
@@ -33,14 +43,19 @@
   </ul>
 </div>
 <!-- Main -->
-<!-- Main/ rate -->
-{#if currentRoute === 'rate'}
-  <RatingComponent on:stateUpdate={updateState} {competitors} />
-{/if}
-<!-- Main/ stats -->
-{#if currentRoute === 'scoreboard'}
-  <DisplayStats {competitors} />
-{/if}
+<section class="section">
+  <div class="container">
+
+    <!-- Main/ rate -->
+    {#if currentRoute === 'rate'}
+      <RatingComponent on:stateUpdate={updateState} {competitors} />
+    {/if}
+    <!-- Main/ stats -->
+    {#if currentRoute === 'scoreboard'}
+      <DisplayStats {competitors} />
+    {/if}
+  </div>
+</section>
 
 <!-- Potential footer -->
 <button class="button is-info" on:click={() => console.log(competitors)}>

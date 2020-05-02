@@ -20,10 +20,13 @@
   }
 </script>
 
-{#each sortList(competitors) as competitor}
-  <dic class="columns">
-    <div class="column">
-      <DisplayCard {...competitor} showScore={true} />
+
+
+  {#each sortList(competitors) as competitor}
+    <div class="columns">
+      <div class="column">
+        <DisplayCard {...competitor} showScore={true} />
+      </div>
     </div>
-  </dic>
-{/each}
+  {/each}
+
