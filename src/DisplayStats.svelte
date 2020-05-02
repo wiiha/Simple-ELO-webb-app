@@ -20,13 +20,13 @@
   }
 </script>
 
-
-
-  {#each sortList(competitors) as competitor}
-    <div class="columns">
-      <div class="column">
-        <DisplayCard {...competitor} showScore={true} />
-      </div>
+{#each sortList(competitors) as competitor}
+  <div class="columns">
+    <div class="column is-hidden-mobile" />
+    <!-- <div class="column is-four-fifths"> -->
+    <div class="column">
+      <DisplayCard {...competitor} showScore={true} />
     </div>
-  {/each}
-
+    <div class="column is-hidden-mobile" />
+  </div>
+{/each}
