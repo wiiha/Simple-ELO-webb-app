@@ -17,7 +17,7 @@
 </script>
 
 <!-- Navbar -->
-<div class="tabs is-centered {currentRoute === 'about' ? 'is-marginless' : ''}">
+<div class="tabs is-centered {currentRoute === 'about' ? 'is-hidden' : ''}">
   <ul>
     <li
       class={currentRoute === 'about' ? 'is-active' : ''}
@@ -46,7 +46,7 @@
 
 <!-- Main/ home -->
 {#if currentRoute === 'about'}
-  <Welcome />
+  <Welcome {navigate} />
   <!-- Main/ rate -->
 {:else if currentRoute === 'rate'}
   <RatingComponent on:stateUpdate={updateState} {competitors} />
