@@ -8,6 +8,8 @@
 
   let dogI = {};
   let dogII = {};
+  let userHasChoosenAtleastOnce = false;
+  let userInactiveTimer;
 
   function setRandomDogs() {
     const min = 0;
@@ -15,8 +17,7 @@
     dogI = competitors[randomIntFromInterval(min, max)];
     dogII = competitors[randomIntFromInterval(min, max)];
     if (dogI.id === dogII.id) {
-      console.log("Same was choosen");
-
+      // console.log("Same was choosen");
       setRandomDogs();
     }
   }
@@ -49,12 +50,29 @@
   }
 
   function cardChosen(event) {
+    removeInfoText();
     setNewScores(event, competitors, dogI, dogII);
+  }
+
+  function removeInfoText() {
+    userHasChoosenAtleastOnce = true;
+    clearTimeout(userInactiveTimer);
+    // Timer "leak" if change to other tab. However no error message shown.
+    userInactiveTimer = setTimeout(() => {
+      userHasChoosenAtleastOnce = false;
+    }, 4000);
   }
 
   setRandomDogs();
 </script>
 
+{#if !userHasChoosenAtleastOnce}
+  <div class="column has-text-centered has-text-info">
+    <div class="notification is-success">
+      <h4 class="title is-4">Click the dog that you think is cuter.</h4>
+    </div>
+  </div>
+{/if}
 <div class="columns">
   <div class="column">
     <DisplayCard on:cardPressed={cardChosen} {...dogI} />

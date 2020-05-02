@@ -6,11 +6,11 @@
   let currentRoute = "rate";
   let competitors = dogs;
   function updateState(event) {
-    console.log(event.detail);
+    // console.log(event.detail);
     competitors = event.detail;
   }
   function navigate(route) {
-    console.log(route);
+    // console.log(route);
     currentRoute = route;
   }
 </script>

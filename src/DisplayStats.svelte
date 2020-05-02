@@ -14,7 +14,7 @@
         return 0;
       }
     });
-    console.log("sortedList", sortedList);
+    //console.log("sortedList", sortedList);
 
     return sortedList;
   }
