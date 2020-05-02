@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../../DisplayCard.svelte",
+    "../../SectionContainer.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  import { createEventDispatcher } from \"svelte\";\n  export let url;\n  export let id;\n  export let score;\n  export let showScore = false;\n\n  const dispatch = createEventDispatcher();\n  let src = url;\n\n  function cardChosen() {\n    dispatch(\"cardPressed\", id);\n  }\n</script>\n\n<style>\n  .box {\n    max-width: 900px;\n  }\n</style>\n\n<div on:click={cardChosen} class=\"box has-text-centered\">\n  <!-- <p>ID: {id}</p> -->\n  <figure class=\"image\">\n    <img src={url} alt=\"picture of a dog\" />\n  </figure>\n  {#if showScore}\n    <p>Score: {score}</p>\n  {/if}\n</div>\n",
+    "<style>\n  .section {\n    padding-top: 0;\n    padding-bottom: 0;\n  }\n</style>\n\n<section class=\"section\">\n  <div class=\"container\">\n    <slot />\n  </div>\n</section>\n"
+  ],
+  "names": [],
+  "mappings": "AAgBE,IAAI,eAAC,CAAC,AACJ,SAAS,CAAE,KAAK,AAClB,CAAC;ACjBD,QAAQ,cAAC,CAAC,AACR,WAAW,CAAE,CAAC,CACd,cAAc,CAAE,CAAC,AACnB,CAAC"
+}
