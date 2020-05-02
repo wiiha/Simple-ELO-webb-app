@@ -58,6 +58,6 @@
 </section>
 
 <!-- Potential footer -->
-<button class="button is-info" on:click={() => console.log(competitors)}>
+<!-- <button class="button is-info" on:click={() => console.log(competitors)}>
   Log competitors
-</button>
+</button> -->
