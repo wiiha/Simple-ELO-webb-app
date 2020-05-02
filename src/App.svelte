@@ -3,7 +3,8 @@
   import { dogs } from "./db.js";
   import RatingComponent from "./RatingComponent.svelte";
   import DisplayStats from "./DisplayStats.svelte";
-  let currentRoute = "rate";
+  import Welcome from "./Welcome.svelte";
+  let currentRoute = "about";
   let competitors = dogs;
   function updateState(event) {
     // console.log(event.detail);
@@ -15,17 +16,16 @@
   }
 </script>
 
-<style>
-.section{
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-</style>
-
 <!-- Navbar -->
-<div class="tabs is-centered">
+<div class="tabs is-centered {currentRoute === 'about' ? 'is-marginless' : ''}">
   <ul>
+    <li
+      class={currentRoute === 'about' ? 'is-active' : ''}
+      on:click={() => {
+        navigate('home');
+      }}>
+      <a>About</a>
+    </li>
     <li
       class={currentRoute === 'rate' ? 'is-active' : ''}
       on:click={() => {
@@ -43,19 +43,18 @@
   </ul>
 </div>
 <!-- Main -->
-<section class="section">
-  <div class="container">
 
-    <!-- Main/ rate -->
-    {#if currentRoute === 'rate'}
-      <RatingComponent on:stateUpdate={updateState} {competitors} />
-    {/if}
-    <!-- Main/ stats -->
-    {#if currentRoute === 'scoreboard'}
-      <DisplayStats {competitors} />
-    {/if}
-  </div>
-</section>
+<!-- Main/ home -->
+{#if currentRoute === 'about'}
+  <Welcome />
+  <!-- Main/ rate -->
+{:else if currentRoute === 'rate'}
+  <RatingComponent on:stateUpdate={updateState} {competitors} />
+
+  <!-- Main/ stats -->
+{:else if currentRoute === 'scoreboard'}
+  <DisplayStats {competitors} />
+{/if}
 
 <!-- Potential footer -->
 <!-- <button class="button is-info" on:click={() => console.log(competitors)}>

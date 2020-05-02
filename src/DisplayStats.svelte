@@ -1,5 +1,6 @@
 <script>
   import DisplayCard from "./DisplayCard.svelte";
+  import SectionContainer from "./partial/SectionContainer.svelte";
   export let competitors = [];
 
   function sortList(list) {
@@ -20,13 +21,17 @@
   }
 </script>
 
-{#each sortList(competitors) as competitor}
-  <div class="columns">
-    <div class="column is-hidden-mobile" />
-    <!-- <div class="column is-four-fifths"> -->
-    <div class="column">
-      <DisplayCard {...competitor} showScore={true} />
+<SectionContainer>
+
+  {#each sortList(competitors) as competitor}
+    <div class="columns">
+      <div class="column is-hidden-mobile" />
+      <!-- <div class="column is-four-fifths"> -->
+      <div class="column">
+        <DisplayCard {...competitor} showScore={true} />
+      </div>
+      <div class="column is-hidden-mobile" />
     </div>
-    <div class="column is-hidden-mobile" />
-  </div>
-{/each}
+  {/each}
+
+</SectionContainer>

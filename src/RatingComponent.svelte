@@ -3,6 +3,7 @@
   import { randomIntFromInterval } from "./utils.js";
   import { newRatings } from "./elo.js";
   import DisplayCard from "./DisplayCard.svelte";
+  import SectionContainer from "./partial/SectionContainer.svelte";
   const dispatch = createEventDispatcher();
   export let competitors;
 
@@ -33,6 +34,7 @@
     playerOne.score = newScore.player1;
     playerTwo.score = newScore.player2;
 
+    // Could store dogs in a map instead of array to avoid looping through array. Problem with scaleability.
     competitors.forEach(dog => {
       if (dog.id === playerOne.id) {
         dog.score = playerOne.score;
@@ -66,18 +68,22 @@
   setRandomDogs();
 </script>
 
-{#if !userHasChoosenAtleastOnce}
-  <div class="column has-text-centered has-text-info">
-    <div class="notification is-success">
-      <h4 class="title is-4">Click the dog that you think is cuter.</h4>
+<SectionContainer>
+
+  {#if !userHasChoosenAtleastOnce}
+    <div class="column has-text-centered has-text-info">
+      <div class="notification is-success">
+        <h4 class="title is-4">Click the dog that you think is cuter.</h4>
+      </div>
+    </div>
+  {/if}
+  <div class="columns">
+    <div class="column">
+      <DisplayCard on:cardPressed={cardChosen} {...dogI} />
+    </div>
+    <div class="column">
+      <DisplayCard on:cardPressed={cardChosen} {...dogII} />
     </div>
   </div>
-{/if}
-<div class="columns">
-  <div class="column">
-    <DisplayCard on:cardPressed={cardChosen} {...dogI} />
-  </div>
-  <div class="column">
-    <DisplayCard on:cardPressed={cardChosen} {...dogII} />
-  </div>
-</div>
+
+</SectionContainer>
