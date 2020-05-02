@@ -22,7 +22,7 @@
     <li
       class={currentRoute === 'about' ? 'is-active' : ''}
       on:click={() => {
-        navigate('home');
+        navigate('about');
       }}>
       <a>About</a>
     </li>
