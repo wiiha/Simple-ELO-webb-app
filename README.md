@@ -1,6 +1,8 @@
 # Dog rating
 This is a simple web application that implements the **ELO** rating algorithm when rating dogs. The app is based on a starter template for SvelteJS (see below) and uses [Bulma](https://bulma.io/) CSS framework for styling.
 
+Live demo available here ([link](https://wiiha.github.io/Simple-ELO-webb-app/)).
+
 
 # svelte app
 
