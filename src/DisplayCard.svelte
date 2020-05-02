@@ -20,7 +20,7 @@
 </style>
 
 <div on:click={cardChosen} class="box has-text-centered">
-  <p>ID: {id}</p>
+  <!-- <p>ID: {id}</p> -->
   <figure class="image">
     <img src={url} alt="picture of a dog" />
   </figure>

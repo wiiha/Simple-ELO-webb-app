@@ -1,6 +1,6 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# Dog Rating
+This is a simple web application that implements the **ELO** rating algorithm when rating dogs. The app is based on a starter template for SvelteJS (see below) and uses [Bulma](https://bulma.io/) CSS framework for styling.
 
----
 
 # svelte app
 
